@@ -1,0 +1,3 @@
+web:
+  util:
+    log-pointcut: execution(public * *..*.controller..*.*(..))
