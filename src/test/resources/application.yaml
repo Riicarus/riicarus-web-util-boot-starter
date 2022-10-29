@@ -1,3 +1,7 @@
 web:
   util:
     log-pointcut: execution(public * *..*.controller..*.*(..))
+    jwt:
+      secret: JWTTOKEN!@#$%
+      expiration: 1000
+      issuer: skyline

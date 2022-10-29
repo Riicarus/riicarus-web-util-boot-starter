@@ -22,6 +22,7 @@
 
         <fastjson.version>1.2.60</fastjson.version>
         <mybatis.plus.version>3.3.2</mybatis.plus.version>
+        <jwt.version>3.15.0</jwt.version>
     </properties>
 
 
@@ -58,8 +59,14 @@
 
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <artifactId>mybatis-plus</artifactId>
             <version>${mybatis.plus.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${jwt.version}</version>
         </dependency>
 
     </dependencies>
