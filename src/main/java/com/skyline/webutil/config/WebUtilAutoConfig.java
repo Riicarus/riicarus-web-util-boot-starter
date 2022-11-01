@@ -2,10 +2,11 @@ package com.skyline.webutil.config;
 
 import com.skyline.webutil.WebUtil;
 import com.skyline.webutil.weblog.WebLogInterceptor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,7 +20,8 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass(WebUtil.class)
-@EnableConfigurationProperties(WebUtilProperties.class)
+@Setter
+@Getter
 public class WebUtilAutoConfig {
 
     private WebUtilProperties webUtilProperties;

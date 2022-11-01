@@ -5,3 +5,9 @@ web:
       secret: JWTTOKEN!@#$%
       expiration: 1000
       issuer: skyline
+    file:
+      store:
+        paths:
+          img: img
+          pdf: pdf
+      max-size: 10000

@@ -1,5 +1,7 @@
 package com.skyline.webutil.config;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -14,26 +16,23 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConfigurationProperties("web.util")
+@Setter
+@Getter
 public class WebUtilProperties {
 
     private String logPointcut;
 
     private JwtProperties jwtProperties;
 
-    public String getLogPointcut() {
-        return logPointcut;
-    }
-
-    public void setLogPointcut(String logPointcut) {
-        this.logPointcut = logPointcut;
-    }
-
-    public JwtProperties getJwtProperties() {
-        return jwtProperties;
-    }
+    private FileProperties fileProperties;
 
     @Autowired
     public void setJwtProperties(JwtProperties jwtProperties) {
         this.jwtProperties = jwtProperties;
+    }
+
+    @Autowired
+    public void setFileProperties(FileProperties fileProperties) {
+        this.fileProperties = fileProperties;
     }
 }
