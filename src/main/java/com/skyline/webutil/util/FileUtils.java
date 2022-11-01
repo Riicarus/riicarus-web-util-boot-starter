@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Decoder;
 
 import java.io.*;
 import java.util.Base64;
@@ -232,6 +233,81 @@ public class FileUtils {
                 e.printStackTrace();
                 Asserts.fail("流关闭失败");
             }
+        }
+    }
+
+    public static class Base64DecodedMultipartFile implements MultipartFile {
+
+        private final byte[] fileContent;
+        private final String header;
+
+        public Base64DecodedMultipartFile(byte[] fileContent, String header) {
+            this.fileContent = fileContent;
+            this.header = header.split(";")[0];
+        }
+
+        @Override
+        public String getName() {
+            return System.currentTimeMillis() + Math.random() + "." + header.split("/")[1];
+        }
+
+        @Override
+        public String getOriginalFilename() {
+            return System.currentTimeMillis() + (int) (Math.random() * 10000) + "." + header.split("/")[1];
+        }
+
+        @Override
+        public String getContentType() {
+            return header.split(":")[1];
+        }
+
+        @Override
+        public boolean isEmpty() {
+            return fileContent == null || fileContent.length == 0;
+        }
+
+        @Override
+        public long getSize() {
+            return fileContent.length;
+        }
+
+        @Override
+        public byte[] getBytes() {
+            return fileContent;
+        }
+
+        @Override
+        public InputStream getInputStream() {
+            return new ByteArrayInputStream(fileContent);
+        }
+
+        @Override
+        public void transferTo(File dest) throws IOException, IllegalStateException {
+            FileOutputStream fileOutputStream = new FileOutputStream(dest);
+            fileOutputStream.write(fileContent);
+            fileOutputStream.close();
+        }
+
+        public static MultipartFile base64Convert(String base64) {
+            //base64编码后的图片有头信息所以要分离出来   [0]data:image/png;base64, 图片内容为索引[1]
+            String[] baseStrs = base64.split(",");
+
+            BASE64Decoder decoder = new BASE64Decoder();
+            byte[] b = new byte[0];
+            try {
+                //取索引为1的元素进行处理
+                b = decoder.decodeBuffer(baseStrs[1]);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            for (int i = 0; i < b.length; ++i) {
+                if (b[i] < 0) {
+                    b[i] += 256;
+                }
+            }
+
+            //处理过后的数据通过Base64DecodedMultipartFile转换为MultipartFile对象
+            return new Base64DecodedMultipartFile(b, baseStrs[0]);
         }
     }
 }
