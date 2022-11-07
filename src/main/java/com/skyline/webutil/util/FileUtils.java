@@ -1,7 +1,7 @@
 package com.skyline.webutil.util;
 
 import com.skyline.webutil.config.WebUtilProperties;
-import com.skyline.webutil.exception.Asserts;
+import com.skyline.webutil.exception.ApiException;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +40,15 @@ public class FileUtils {
      */
     public void checkFile(MultipartFile file) {
         if (file.isEmpty()) {
-            Asserts.fail("文件不存在.");
+            throw new ApiException("文件不存在.");
         }
 
         if (!StringUtils.hasLength(file.getContentType())) {
-            Asserts.fail("文件类型不存在.");
+            throw new ApiException("文件类型不存在.");
         }
 
         if (file.getSize() > webUtilProperties.getFileProperties().getMaxSize()) {
-            Asserts.fail("文件大小溢出.");
+            throw new ApiException("文件大小溢出.");
         }
     }
 
@@ -61,12 +61,12 @@ public class FileUtils {
      */
     public void writeText(String text, String filePath, Boolean append) {
         if (!StringUtils.hasLength(filePath.trim())) {
-            Asserts.fail("文件路径不能为空");
+            throw new ApiException("文件路径不能为空.");
         }
 
         File file = getFile(filePath, true);
         if (file == null) {
-            Asserts.fail("创建/获取文件失败");
+            throw new ApiException("创建/获取文件失败.");
         }
 
         FileWriter fileWriter = null;
@@ -77,7 +77,7 @@ public class FileUtils {
             fileWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();
-            Asserts.fail("读取文件失败");
+            throw new ApiException("读取文件失败.");
         } finally {
             closeFile(fileWriter);
         }
@@ -101,11 +101,11 @@ public class FileUtils {
      * @return 文本内容
      */
     public String readText(String filePath) {
-        String text = null;
+        String text;
 
         File file = getFile(filePath, false);
         if (file == null) {
-            Asserts.fail("无法获取对应文件");
+            throw new ApiException("无法获取对应文件.");
         }
 
         FileReader fileReader = null;
@@ -122,7 +122,7 @@ public class FileUtils {
             text = builder.toString();
         } catch (IOException e) {
             e.printStackTrace();
-            Asserts.fail("读取文件失败");
+            throw new ApiException("读取文件失败.");
         } finally {
             closeFile(fileReader);
         }
@@ -163,11 +163,11 @@ public class FileUtils {
         // 文件不存在,创建文件,返回文件
         try {
             if (!file.createNewFile()) {
-                Asserts.fail("创建文件失败");
+                throw new ApiException("创建文件失败.");
             }
         } catch (IOException e) {
             e.printStackTrace();
-            Asserts.fail("创建文件失败");
+            throw new ApiException("创建文件失败.");
         }
 
         return file;
@@ -183,7 +183,7 @@ public class FileUtils {
         File file = new File(filePath);
         if (!file.exists()) {
             if (!file.mkdirs()) {
-                Asserts.fail("创建文件夹失败");
+                throw new ApiException("创建文件夹失败.");
             }
         }
 
@@ -203,7 +203,7 @@ public class FileUtils {
             success = file.delete();
         }
         if (!success) {
-            Asserts.fail("删除文件失败!");
+            throw new ApiException("删除文件失败.");
         }
     }
 
@@ -231,7 +231,7 @@ public class FileUtils {
                 stream.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                Asserts.fail("流关闭失败");
+                throw new ApiException("流关闭失败.");
             }
         }
     }

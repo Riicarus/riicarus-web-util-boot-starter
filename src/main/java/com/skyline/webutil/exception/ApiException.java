@@ -1,5 +1,8 @@
 package com.skyline.webutil.exception;
 
+import com.skyline.webutil.response.RespStatus;
+import lombok.Getter;
+
 /**
  * [FEATURE INFO]<br/>
  * ApiException
@@ -8,29 +11,27 @@ package com.skyline.webutil.exception;
  * @create 2022/6/10 16:06
  * @since 1.0.0
  */
+@Getter
 public class ApiException extends RuntimeException {
 
-    private IErrorCode errorCode;
+    private RespStatus respStatus;
 
-    public ApiException(IErrorCode errorCode) {
-        super(errorCode.getMessage());
-        this.errorCode = errorCode;
+    public ApiException(RespStatus respStatus, String message) {
+        super(message);
+        this.respStatus = respStatus;
+    }
+
+    public ApiException(RespStatus respStatus, String message, Throwable cause) {
+        super(message, cause);
+        this.respStatus = respStatus;
     }
 
     public ApiException(String message) {
         super(message);
     }
 
-    public ApiException(Throwable cause) {
-        super(cause);
-    }
-
     public ApiException(String message, Throwable cause) {
         super(message, cause);
-    }
-
-    public IErrorCode getErrorCode() {
-        return errorCode;
     }
 }
 
