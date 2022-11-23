@@ -1,4 +1,4 @@
-package com.skyline.webutil.config;
+package com.riicarus.webutil.config;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import java.util.Map;
  * [FEATURE INFO]<br/>
  * 文件配置属性
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-11-1 15:31
  * @since 1.0.0
  */

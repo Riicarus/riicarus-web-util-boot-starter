@@ -1,7 +1,7 @@
-package com.skyline.webutil.config;
+package com.riicarus.webutil.config;
 
-import com.skyline.webutil.WebUtil;
-import com.skyline.webutil.weblog.WebLogInterceptor;
+import com.riicarus.webutil.WebUtil;
+import com.riicarus.webutil.weblog.WebLogInterceptor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * [FEATURE INFO]<br/>
  * web 工具自动配置类
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-10-27 20:30
  * @since 1.0.0
  */
@@ -39,7 +39,7 @@ public class WebUtilAutoConfig {
         return advisor;
     }
 
-    @Bean("WebUtil")
+    @Bean
     public WebUtil webUtil() {
         return new WebUtil();
     }

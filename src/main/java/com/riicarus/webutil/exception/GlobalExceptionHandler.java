@@ -1,6 +1,6 @@
-package com.skyline.webutil.exception;
+package com.riicarus.webutil.exception;
 
-import com.skyline.webutil.response.Resp;
+import com.riicarus.webutil.response.Resp;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * [FEATURE INFO]<br/>
  * handle global exception
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022/6/10 16:06
  * @since 1.0.0
  */

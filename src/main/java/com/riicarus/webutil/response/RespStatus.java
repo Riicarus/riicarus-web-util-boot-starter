@@ -1,4 +1,4 @@
-package com.skyline.webutil.response;
+package com.riicarus.webutil.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.List;
  * [FEATURE INFO]<br/>
  * 返回类状态
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-11-7 15:02
  * @since 1.0.0
  */

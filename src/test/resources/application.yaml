@@ -4,7 +4,7 @@ web:
     jwt:
       secret: JWTTOKEN!@#$%
       expiration: 1000
-      issuer: skyline
+      issuer: Riicarus
     file:
       store:
         paths:

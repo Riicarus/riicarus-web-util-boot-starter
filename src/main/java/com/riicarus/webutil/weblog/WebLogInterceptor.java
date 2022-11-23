@@ -1,4 +1,4 @@
-package com.skyline.webutil.weblog;
+package com.riicarus.webutil.weblog;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -16,7 +16,7 @@ import java.util.Arrays;
  * [FEATURE INFO]<br/>
  * web log aspect
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022/7/27 15:25
  * @since 1.0.0
  */

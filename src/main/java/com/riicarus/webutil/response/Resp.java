@@ -1,4 +1,4 @@
-package com.skyline.webutil.response;
+package com.riicarus.webutil.response;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.Data;
  * [FEATURE INFO]<br/>
  * 返回类封装
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-11-7 14:36
  * @since 1.0.0
  */

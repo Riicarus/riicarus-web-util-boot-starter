@@ -1,13 +1,13 @@
-package com.skyline.webutil.exception;
+package com.riicarus.webutil.exception;
 
-import com.skyline.webutil.response.RespStatus;
+import com.riicarus.webutil.response.RespStatus;
 import lombok.Getter;
 
 /**
  * [FEATURE INFO]<br/>
  * ApiException
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022/6/10 16:06
  * @since 1.0.0
  */

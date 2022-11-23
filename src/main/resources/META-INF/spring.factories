@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.skyline.webutil.config.WebUtilAutoConfig
+  com.riicarus.webutil.config.WebUtilAutoConfig

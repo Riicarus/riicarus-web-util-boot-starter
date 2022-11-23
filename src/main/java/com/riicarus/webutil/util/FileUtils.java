@@ -1,7 +1,7 @@
-package com.skyline.webutil.util;
+package com.riicarus.webutil.util;
 
-import com.skyline.webutil.config.WebUtilProperties;
-import com.skyline.webutil.exception.ApiException;
+import com.riicarus.webutil.config.WebUtilProperties;
+import com.riicarus.webutil.exception.ApiException;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Base64;
  * [FEATURE INFO]<br/>
  * 文件操作工具
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-11-1 15:54
  * @since 1.0.0
  */

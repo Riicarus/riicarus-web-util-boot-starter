@@ -1,4 +1,4 @@
-package com.skyline.webutil.util;
+package com.riicarus.webutil.util;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -10,7 +10,7 @@ import java.util.List;
  * [FEATURE INFO]<br/>
  * MybatisPlus 分页工具
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-10-28 16:59
  * @since 1.0.0
  */

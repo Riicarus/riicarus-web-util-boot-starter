@@ -1,4 +1,4 @@
-package com.skyline.webutil.util;
+package com.riicarus.webutil.util;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;

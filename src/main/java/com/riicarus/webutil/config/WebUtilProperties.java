@@ -1,4 +1,4 @@
-package com.skyline.webutil.config;
+package com.riicarus.webutil.config;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * [FEATURE INFO]<br/>
  * 配置属性
  *
- * @author Skyline
+ * @author Riicarus
  * @create 2022-10-27 20:32
  * @since 1.0.0
  */
