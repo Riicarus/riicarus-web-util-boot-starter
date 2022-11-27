@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,6 +20,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 1.0.0
  */
 @Configuration
+@EnableConfigurationProperties({WebUtilProperties.class, JwtProperties.class, FileProperties.class})
 @ConditionalOnClass(WebUtil.class)
 @Setter
 @Getter
